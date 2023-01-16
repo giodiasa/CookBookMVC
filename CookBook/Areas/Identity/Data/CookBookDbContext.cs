@@ -14,7 +14,7 @@ public class CookBookDbContext : IdentityDbContext<CookBookUser>
     {
     }
 
-    public DbSet<Recipe> Recipes { get; set; }
+    public DbSet<Recipe> Recipes { get; set; } = null!;
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

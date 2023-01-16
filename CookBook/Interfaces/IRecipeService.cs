@@ -8,6 +8,7 @@ namespace CookBook.Interfaces
         RecipeModel GetRecipe(int Id);
         RecipeModel CreateRecipe(RecipeModel recipe);
         RecipeModel EditRecipe(RecipeModel recipe);
+        void DeleteRecipe(int Id);
 
     }
 }

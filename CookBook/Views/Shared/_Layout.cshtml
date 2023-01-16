@@ -22,16 +22,19 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Recipe" asp-action="Index" style="color: #fbf2d5">Recipes</a>
                         </li>
-                        <div class="dropdown">
-                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" style="color: #fbf2d5">
-                                Categories
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Link 1</a></li>
-                                <li><a class="dropdown-item" href="#">Link 2</a></li>
-                                <li><a class="dropdown-item" href="#">Link 3</a></li>
-                            </ul>
-                        </div>
+                        <li>
+                            <div class="dropdown">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" style="color: #fbf2d5">
+                                    Categories
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Link 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Link 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        
                     </ul>
                 </div>
                 <partial name="_LoginPartial"/>

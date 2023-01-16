@@ -60,5 +60,27 @@ namespace CookBook.Controllers
             _recipeService.EditRecipe(recipe);
             return RedirectToAction("Index");
         }
+
+        [HttpGet("DeleteRecipe")]
+        public IActionResult DeleteRecipe(int? Id)
+        {
+            if (Id is null || Id == 0)
+            {
+                return NotFound();
+            }
+            var recipe = _recipeService.GetRecipe((int)Id);
+            if (recipe is null)
+            {
+                return NotFound();
+            }
+            return View(recipe);
+        }
+
+        [HttpPost("DeleteRecipe")]
+        public IActionResult Delete(int Id)
+        {
+            _recipeService.DeleteRecipe(Id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -48,6 +48,16 @@ namespace CookBook.Services
             _context.SaveChanges();
             return recipe;
         }
+        public void DeleteRecipe(int Id)
+        {
+            var cat = _context.Recipes.Find(Id);
+            if (cat == null)
+            {
+                throw new Exception();
+            }
+            _context.Recipes.Remove(cat);
+            _context.SaveChanges();
+        }
 
     }
 }
