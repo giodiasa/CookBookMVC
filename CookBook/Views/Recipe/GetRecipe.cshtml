@@ -1,0 +1,16 @@
+﻿@model CookBook.Models.RecipeModel
+
+<input asp-for="Id" hidden />
+<div class="card" style="margin-bottom: 20px; width:60%; ">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text"><small class="text-muted">@Model.Description</small></p>
+        <img class="card-img-bottom" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="image of @Model.Name">
+        <p class="card-text">@Model.Directions</p>
+    </div>
+
+</div>
+
+<a type="button" class="btn btn-lg" asp-controller="Recipe" asp-action="EditRecipe" asp-route-id="@Model.Id" style="background-color:#fdc57b; color:#394a51">Edit Recipe</a>
+
+<a class="btn btn-lg active" role="button" aria-pressed="true" asp-controller="Recipe" asp-action="Index" style="background-color:#394a51; color:#fbf2d5">Back to Recipes</a>
