@@ -16,3 +16,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.page-item.active .page-link {
+    color: #fbf2d5;
+    background-color: #394a51;
+    border-color: #394a51;
+}
+.page-link {
+    color: #394a51;
+}
+.page-link:hover {
+    color: #394a51;
+}
