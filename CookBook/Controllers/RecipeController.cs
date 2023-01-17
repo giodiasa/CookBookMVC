@@ -1,6 +1,7 @@
 ﻿using CookBook.Interfaces;
 using CookBook.Models;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace CookBook.Controllers
 {
@@ -12,10 +13,10 @@ namespace CookBook.Controllers
             _recipeService = recipeService;
         }
 
-        [HttpGet("GetAllRecipes")]
-        public IActionResult Index()
+        [HttpGet("[controller]/GetAllRecipes")]
+        public IActionResult Index(int? page)
         {
-            List<RecipeModel> model = _recipeService.GetAllRecipes();
+            PagedList<RecipeModel> model = (PagedList<RecipeModel>)_recipeService.GetAllRecipes().ToPagedList(page ?? 1, 16);
             return View(model);
         }
 

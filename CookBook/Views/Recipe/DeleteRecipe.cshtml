@@ -17,8 +17,8 @@
             <input asp-for="Directions" class="form-control" />
         </div>
         <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
-        <a asp-controller="Recipe" asp-action="Index" class="btn btn-secondary" style="width:150px">
-            Back to Recipes
+        <a asp-controller="Recipe" asp-action="GetRecipe" asp-route-id="@Model.Id" class="btn btn-secondary" style="width:150px;background-color:#394a51; color:#fbf2d5">
+            Cancel
         </a>
     </div>
 </form>
