@@ -17,13 +17,14 @@ namespace CookBook.Controllers
         public IActionResult Index(int? page, string SearchString)
         {
             ViewData["CurrentFilter"] = SearchString;
-            PagedList<RecipeModel> model = (PagedList<RecipeModel>)_recipeService.GetAllRecipes().ToPagedList(page ?? 1, 16);
+            var model = _recipeService.GetAllRecipes().OrderByDescending(r => r.CreateDate);
+            PagedList<RecipeModel> pagedModel = (PagedList<RecipeModel>)model.ToPagedList(page ?? 1, 16);
 
             if (!string.IsNullOrEmpty(SearchString))
             {
-                model = (PagedList<RecipeModel>)model.Where(r => r.Name.ToLower().Contains(SearchString.ToLower())).ToPagedList();
+                pagedModel = (PagedList<RecipeModel>)pagedModel.Where(r => r.Name.ToLower().Contains(SearchString.ToLower())).ToPagedList();
             }
-            return View(model);
+            return View(pagedModel);
         }
 
         [HttpGet("GetRecipe")]
