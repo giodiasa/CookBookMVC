@@ -36,7 +36,7 @@ namespace CookBook.Services
         public RecipeModel CreateRecipe(RecipeModel recipe)
         {
             var recipeEntity = _recipeMapper.MapFromModelToEntity(recipe);
-
+            recipeEntity.CreateDate = DateTime.Now;
             _context.Recipes.Add(recipeEntity);
             _context.SaveChanges();
             recipe = _recipeMapper.MapFromEntityToModel(recipeEntity);

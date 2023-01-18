@@ -18,7 +18,9 @@
         </div>
         <div class="mb-3">
             <label asp-for="Directions"></label>
-            <input asp-for="Directions" class="form-control" />
+            <textarea rows="5" asp-for="Directions" class="form-control"></textarea>
+            <label hidden asp-for="CreateDate"></label>
+            <input hidden asp-for="CreateDate"/>
         </div>
         <button type="submit" class="btn" style="width:150px;background-color:#fdc57b; color:#394a51">Update</button>
         <a asp-controller="Recipe" asp-action="GetRecipe" asp-route-id="@Model.Id" class="btn btn-secondary" style="width:150px;background-color:#394a51; color:#fbf2d5">

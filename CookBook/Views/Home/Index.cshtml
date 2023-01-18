@@ -14,20 +14,21 @@
                     if (i == 0)
                     {
                             <div class="carousel-item active">
-                            <a asp-controller="Recipe" asp-action="GetRecipe" asp-route-id="@Model[i].Id" style="color:#394a51; text-decoration:none">
+                                <a asp-controller="Recipe" asp-action="GetRecipe" asp-route-id="@Model[i].Id" style="color:#394a51; text-decoration:none">
                                     <img class="card-img-top" style="width:30%" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="Picture of @Model[i].Name">
                                     <h2>@Model[i].Name</h2>
-                                    <p>@Model[i].Description</p>
+                                <p style="width:40%; margin:auto">@Model[i].Description</p>
                                 </a>
-                            </div>                    }
+                            </div>
+                    }
                     else
                     {
-                        
+
                             <div class="carousel-item">
-                            <a asp-controller="Recipe" asp-action="GetRecipe" asp-route-id="@Model[i].Id" style="color:#394a51; text-decoration:none">
+                                <a asp-controller="Recipe" asp-action="GetRecipe" asp-route-id="@Model[i].Id" style="color:#394a51; text-decoration:none">
                                     <img class="card-img-top" style="width:30%" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="Picture of @Model[i].Name">
                                     <h2>@Model[i].Name</h2>
-                                    <p>@Model[i].Description</p>
+                                    <p style="width:40%; margin:auto">@Model[i].Description</p>
                                 </a>
                             </div>
                     }

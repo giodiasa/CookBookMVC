@@ -19,6 +19,7 @@ namespace CookBook.Controllers
         public IActionResult Index()
         {
             var model = _recipeService.GetAllRecipes();
+            model = model.OrderByDescending(r => r.CreateDate).ToList();
             return View(model);
         }
 
