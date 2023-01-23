@@ -1,0 +1,18 @@
+﻿@model CookBook.Models.CategoryModel
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add New Category</h2>
+            <hr />
+        </div>       
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <button type="submit" class="btn" style="width:150px;background-color:#fdc57b; color:#394a51">Add Category</button>
+        <a asp-controller="Recipe" asp-action="CreateRecipe" class="btn btn-secondary" style="width:150px;background-color:#394a51; color:#fbf2d5">
+            Go Back
+        </a>
+    </div>
+</form>

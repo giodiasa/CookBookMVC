@@ -15,6 +15,7 @@ namespace CookBook.Mapping
                 Description = source.Description,
                 Directions = source.Directions,
                 CreateDate = source.CreateDate,
+                CategoryId = source.CategoryId,
             };
         }
 
@@ -32,6 +33,7 @@ namespace CookBook.Mapping
             target.Description = source.Description;
             target.Directions = source.Directions;
             target.CreateDate = source.CreateDate;
+            target.CategoryId = source.CategoryId;
         }
     }
 }

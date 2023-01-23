@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CookBook.Models.CategoryModel>
+
+<div class="row">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Category Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row" style="width: 80%">@item.Name</th>
+                    <td><a class="btn btn-lg active" role="button" aria-pressed="true" asp-controller="Category" asp-action="EditCategory" asp-route-id="@item.Id" style="background-color:#fdc57b; color:#fbf2d5">Edit</a></td>
+                    <td><a class="btn btn-lg active" role="button" aria-pressed="true" asp-controller="Category" asp-action="DeleteCategory" asp-route-id="@item.Id" style="background-color:#dc2f2f; color:#fbf2d5">Delete</a></td>
+                </tr>
+            }                          
+        </tbody>
+    </table>
+    <a asp-controller="Recipe" asp-action="CreateRecipe" class="btn btn-secondary" style="width:150px;background-color:#394a51; color:#fbf2d5">
+        Cancel
+    </a>
+
+</div>

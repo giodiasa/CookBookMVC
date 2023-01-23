@@ -28,3 +28,10 @@ body {
 .page-link:hover {
     color: #394a51;
 }
+.category-dropdown {
+    background-color: #394a51;
+    color: #fbf2d5;
+}
+.category-dropdown:hover {
+    color: #fbf2d5;
+}

@@ -1,0 +1,18 @@
+﻿@model CookBook.Models.CategoryModel
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 style="color: #dc2f2f">Delete This Category?</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <input asp-for="Name" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn" style="width:150px; background-color:#dc2f2f; color:#fbf2d5">Delete</button>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px;background-color:#394a51; color:#fbf2d5">
+            Cancel
+        </a>
+    </div>
+</form>

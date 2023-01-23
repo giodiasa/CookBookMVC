@@ -5,6 +5,7 @@ using CookBook.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CookBook.Services
 {
@@ -35,6 +36,7 @@ namespace CookBook.Services
         }        
         public RecipeModel CreateRecipe(RecipeModel recipe)
         {
+            recipe.CategoryId = _context.Categories.Where(x => x.Name == recipe.Category.Name).Select(x => x.Id).FirstOrDefault();
             var recipeEntity = _recipeMapper.MapFromModelToEntity(recipe);
             recipeEntity.CreateDate = DateTime.Now;
             _context.Recipes.Add(recipeEntity);

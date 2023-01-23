@@ -18,7 +18,9 @@ builder.Services.AddDefaultIdentity<CookBookUser>(options => options.SignIn.Requ
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRecipeService, RecipeService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IMapper<CookBook.Entities.Recipe, RecipeModel>, RecipeMapper>();
+builder.Services.AddScoped<IMapper<CookBook.Entities.Category, CategoryModel>, CategoryMapper>();
 
 var app = builder.Build();
 

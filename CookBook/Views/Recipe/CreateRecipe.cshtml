@@ -1,11 +1,22 @@
 ﻿@model CookBook.Models.RecipeModel
 
 
+
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary">Add New Recipe</h2>
             <hr />
+        </div>
+        <div class="mb-3">            
+            <label asp-for="Category"></label>
+            <select asp-for="Category.Name" asp-items="Model.Categories" style="width:90%" class="form-control">
+                <option value="NothingSelected">--Select Category--</option>
+            </select>
+            <a asp-controller="Category" asp-action="CreateCategory" class="btn" style="margin-bottom: 10px; background-color:#fdc57b; margin-top: 10px">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Category
+            </a>
+            <a class="btn active" role="button" aria-pressed="true" asp-controller="Category" asp-action="Index" style="background-color:#dc2f2f; color:#fbf2d5">Edit or Delete Category</a>
         </div>
         <div class="mb-3">
             <label asp-for="Name"></label>

@@ -10,5 +10,7 @@ namespace CookBook.Entities
         public string Description { get; set; } = string.Empty;
         public string Directions { get; set; } = string.Empty;
         public DateTime CreateDate { get; set; }
+        public Category? Category { get; set; }
+        public int CategoryId { get; set; }
     }
 }

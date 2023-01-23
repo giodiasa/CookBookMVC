@@ -1,6 +1,7 @@
 ﻿using CookBook.Interfaces;
 using CookBook.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using X.PagedList;
 
 namespace CookBook.Controllers
@@ -8,13 +9,16 @@ namespace CookBook.Controllers
     public class RecipeController : Controller
     {
         public readonly IRecipeService _recipeService;
-        public RecipeController(IRecipeService recipeService)
+        public readonly ICategoryService _categoryService;
+
+        public RecipeController(IRecipeService recipeService, ICategoryService categoryService)
         {
             _recipeService = recipeService;
+            _categoryService = categoryService;
         }
 
         [HttpGet("[controller]/GetAllRecipes")]
-        public IActionResult Index(int? page, string SearchString)
+        public IActionResult Index(int? page, string SearchString, int Id)
         {
             ViewData["CurrentFilter"] = SearchString;
             var model = _recipeService.GetAllRecipes().OrderByDescending(r => r.CreateDate);
@@ -37,7 +41,11 @@ namespace CookBook.Controllers
         [HttpGet("CreateRecipe")]
         public IActionResult CreateRecipe()
         {
-            return View();
+            var model = new RecipeModel();
+            model.Categories = _categoryService.GetAllCategories()
+                .Select(c => new SelectListItem() { Value = c.Name, Text = c.Name })
+                .ToList();
+            return View(model);
         }
 
         [HttpPost("CreateRecipe")]
