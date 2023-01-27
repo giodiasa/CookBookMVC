@@ -28,8 +28,10 @@
                                     Categories
                                 </button>
                                 <ul class="dropdown-menu">
-
-                                    <li><a class="dropdown-item" href="#">category</a></li>
+                                    @foreach (var item in (List<CategoryModel>)ViewBag.Categories)
+                                    {
+                                        <li><a class="dropdown-item" asp-controller="Recipe" asp-action="GetRecipesByCategory" asp-route-id="@item.Id">@item.Name</a></li>
+                                    }
                                 </ul>
                             </div>
                         </li>

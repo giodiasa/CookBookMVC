@@ -35,3 +35,6 @@ body {
 .category-dropdown:hover {
     color: #fbf2d5;
 }
+.SelectedCategory {
+    color: #394a51;
+}

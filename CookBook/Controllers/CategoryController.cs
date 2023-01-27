@@ -8,10 +8,10 @@ using X.PagedList;
 
 namespace CookBook.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         public readonly ICategoryService _categoryService;
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService, IServiceProvider serviceProvider) : base(serviceProvider)
         {
             _categoryService = categoryService;
         }

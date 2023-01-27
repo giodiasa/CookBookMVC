@@ -5,12 +5,12 @@ using System.Diagnostics;
 
 namespace CookBook.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
         public readonly IRecipeService _recipeService;
 
-        public HomeController(ILogger<HomeController> logger, IRecipeService recipeService)
+        public HomeController(ILogger<HomeController> logger, IRecipeService recipeService, IServiceProvider serviceProvider) : base(serviceProvider)
         {
             _logger = logger;
             _recipeService = recipeService; 

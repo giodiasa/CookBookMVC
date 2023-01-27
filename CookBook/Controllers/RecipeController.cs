@@ -6,19 +6,19 @@ using X.PagedList;
 
 namespace CookBook.Controllers
 {
-    public class RecipeController : Controller
+    public class RecipeController : BaseController
     {
         public readonly IRecipeService _recipeService;
         public readonly ICategoryService _categoryService;
 
-        public RecipeController(IRecipeService recipeService, ICategoryService categoryService)
+        public RecipeController(IRecipeService recipeService, ICategoryService categoryService, IServiceProvider serviceProvider) : base(serviceProvider)
         {
             _recipeService = recipeService;
             _categoryService = categoryService;
         }
 
-        [HttpGet("[controller]/GetAllRecipes")]
-        public IActionResult Index(int? page, string SearchString, int Id)
+        [HttpGet("[controller]/Index")]
+        public IActionResult Index(int? page, string SearchString)
         {
             ViewData["CurrentFilter"] = SearchString;
             var model = _recipeService.GetAllRecipes().OrderByDescending(r => r.CreateDate);
@@ -31,7 +31,7 @@ namespace CookBook.Controllers
             return View(pagedModel);
         }
 
-        [HttpGet("GetRecipe")]
+        [HttpGet("Recipe/{Id}")]
         public IActionResult GetRecipe(int Id)
         {
             RecipeModel model = _recipeService.GetRecipe(Id);
@@ -97,6 +97,20 @@ namespace CookBook.Controllers
         {
             _recipeService.DeleteRecipe(Id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet("[controller]/Category/{Id}/Recipe")]
+        public IActionResult GetRecipesByCategory(int? page, string SearchString, int Id)
+        {
+            ViewData["CurrentFilter"] = SearchString;
+            var model = _recipeService.GetAllRecipes().Where(x=> x.CategoryId == Id).OrderByDescending(r => r.CreateDate);
+            PagedList<RecipeModel> pagedModel = (PagedList<RecipeModel>)model.ToPagedList(page ?? 1, 16);
+            ViewData["SelectedCategory"] = _categoryService.GetCategory(Id).Name;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                pagedModel = (PagedList<RecipeModel>)pagedModel.Where(r => r.Name.ToLower().Contains(SearchString.ToLower())).ToPagedList();
+            }
+            return View(pagedModel);            
         }
     }
 }

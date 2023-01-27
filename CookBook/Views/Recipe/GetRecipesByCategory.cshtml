@@ -4,6 +4,8 @@
 
 @model IEnumerable<CookBook.Models.RecipeModel>
 
+<h1 class="SelectedCategory">@ViewData["SelectedCategory"]</h1>
+
 @if (Model.Count() > 0)
 {
     <a asp-controller="Recipe" asp-action="CreateRecipe" class="btn" style="margin-bottom: 15px; background-color:#fdc57b">
