@@ -46,6 +46,7 @@ namespace CookBook.Services
         }
         public RecipeModel EditRecipe(RecipeModel recipe)
         {
+            recipe.CategoryId = _context.Categories.Where(x => x.Name == recipe.Category.Name).Select(x => x.Id).FirstOrDefault();
             _context.Recipes.Update(_recipeMapper.MapFromModelToEntity(recipe));
             _context.SaveChanges();
             return recipe;

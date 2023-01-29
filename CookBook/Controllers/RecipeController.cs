@@ -67,6 +67,9 @@ namespace CookBook.Controllers
             {
                 return NotFound();
             }
+            recipe.Categories = _categoryService.GetAllCategories()
+                .Select(c => new SelectListItem() { Value = c.Name, Text = c.Name })
+                .ToList();
             return View(recipe);
         }
 

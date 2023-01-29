@@ -6,7 +6,7 @@
         <h5 class="card-title">@Model.Name</h5>
         <p class="card-text"><small class="text-muted">@Model.Description</small></p>
         <img class="card-img-bottom" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="image of @Model.Name">
-        <p class="card-text">@Model.Directions</p>
+        <p class="card-text">@Html.Raw(Model.Directions)</p>
         <footer class="blockquote-footer">@Model.CreateDate.ToString("d")</footer>
     </div>
 
